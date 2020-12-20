@@ -117,30 +117,30 @@ def moves(field, figure, x, y):
 
 	if figure[0] == 'P':
 		if figure[1] == 'W':
+			m = []
 			if x == 6:
-				m = [[x - 1, y], [x - 2, y]]
+				r = 2
 			else:
-				m = [[x - 1, y]]
-			for po_m in m:
-				po_x = po_m[0]
-				po_y = po_m[1]
-				if field[po_x][po_y] != '':
-					m.remove(po_m)
+				r = 1
+			pM = 1
+			while pM <= r and field[x - pM][y] == '':
+				m.append([x - pM, y])
+				pM += 1
 			if x - 1 >= 0 and y + 1 <= 7 and field[x - 1][y + 1] != '':
 				m.append([x - 1, y + 1])
 			if x - 1 >= 0 and y - 1 >= 0 and field[x - 1][y - 1] != '':
 				m.append([x - 1, y - 1])
 
 		if figure[1] == 'B':
+			m = []
 			if x == 1:
-				m = [[x + 1, y], [x + 2, y]]
+				r = 2
 			else:
-				m = [[x + 1, y]]
-			for po_m in m:
-				po_x = po_m[0]
-				po_y = po_m[1]
-				if field[po_x][po_y] != '':
-					m.remove(po_m)
+				r = 1
+			pM = 1
+			while pM <= r and field[x + pM][y] == '':
+				m.append([x + pM, y])
+				pM += 1
 			if x + 1 <= 7 and y + 1 <= 7 and field[x + 1][y + 1] != '':
 				m.append([x + 1, y + 1])
 			if x + 1 <= 7 and y - 1 >= 0 and field[x + 1][y - 1] != '':

@@ -1,1 +1,1 @@
-# Chess
+# Chess on Python3 + Tkinter
